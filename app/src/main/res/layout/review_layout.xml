@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    app:cardElevation="25dp"
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="@android:color/white"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        >
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:id="@+id/rev_lnlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <RatingBar
+                android:id="@+id/rev_ratingbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:gravity="center_horizontal"
+                android:maxHeight="20dp"
+                android:maxWidth="100dp"
+                style="?android:attr/ratingBarStyleSmall"
+
+                >
+            </RatingBar>
+            <TextView
+                android:id="@+id/rev_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="9.5"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:textColor="@android:color/black"
+                />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/rev_cus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rev_lnlay"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="Product Description"
+            android:textColor="@color/purple_200"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rev_des"
+            android:inputType="textMultiLine"
+            android:enabled="false"
+            android:text="Product Quantity"
+            android:textSize="15dp"
+            android:textColor="@android:color/black"
+            android:layout_below="@+id/rev_cus"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1a1a1d"
+    tools:context=".ui.InquiryActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/prof_name_top"
+                android:layout_width="match_parent"
+                android:layout_height="248dp"
+                android:layout_marginHorizontal="30dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="center_vertical"
+                android:text="Send Us \n Your Inquiries"
+                android:textColor="#46a29f"
+                android:textSize="48dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="Name"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/inq_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:textColor="#46a29f"
+                android:textSize="16dp"></EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="Email"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/inq_email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:textColor="#46a29f"
+                android:textSize="16dp"></EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="Subject"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/inq_sub"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:textColor="#46a29f"
+                android:textSize="16dp"></EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="Contact Number"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/inq_contact"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:textColor="#46a29f"
+                android:textSize="16dp"></EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="Message"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/inq_message"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:ems="10"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="center_vertical"
+                android:inputType="textMultiLine"
+                android:paddingStart="10dp"
+                android:textColor="#46a29f"
+                android:textSize="16dp"></EditText>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="20dp"
+                android:id="@+id/inq_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="30dp"
+                android:background="#66fcf1"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="Submit"
+                android:textColor="#1a1a1d"
+                android:textSize="18dp"></androidx.appcompat.widget.AppCompatButton>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

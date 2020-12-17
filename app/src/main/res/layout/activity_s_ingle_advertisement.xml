@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SIngleAdvertisementActivity">
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:layout_width="281dp"
+        android:layout_height="359dp"
+        app:fab_addButtonColorNormal="@color/colorPrimary"
+        app:fab_addButtonPlusIconColor="@color/black"
+        app:fab_labelStyle="@style/customFab"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.964">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_myprof2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/white"
+            app:fab_colorPressed="@color/colorPrimary"
+            app:fab_icon="@drawable/ic_baseline_account_circle_24"
+            app:fab_title="My Profile" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_reviews2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/white"
+            app:fab_colorPressed="@color/colorPrimary"
+            app:fab_icon="@drawable/ic_baseline_account_circle_24"
+            app:fab_title="Reviews" />
+
+
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <LinearLayout
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RatingBar
+                    android:progressBackgroundTint="#a5a8ac"
+                    android:id="@+id/sing_ratingbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:rating="3"
+                    android:gravity="center_horizontal"
+                    ></RatingBar>
+
+                <TextView
+                    android:id="@+id/sing_rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center_horizontal"
+                    android:text="9.5"
+                    android:textColor="@android:color/black"
+                    android:textSize="35dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/sin_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Advertisement Titile"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sin_image" />
+
+            <ImageView
+                android:gravity="center_horizontal"
+                android:id="@+id/sin_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                tools:srcCompat="@tools:sample/avatars" />
+            <EditText
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/sin_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:textAlignment="textStart"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:enabled="false"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sin_title" />
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:id="@+id/sin_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Starting from"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sin_description" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:nestedScrollingEnabled="false"
+                android:layout_marginVertical="20dp"
+                android:id="@+id/singadv_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"/>
+
+        </LinearLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

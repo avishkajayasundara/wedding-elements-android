@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1a1a1d"
+    tools:context=".ui.BusinessOwnerRegistration">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:elevation="15dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="center_vertical"
+                android:layout_marginHorizontal="30dp"
+                android:text="Business Account Registration"
+                android:textColor="#66fcf1"
+                android:textSize="48sp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato"
+                android:text="Name of the Business"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <EditText
+                android:paddingStart="10dp"
+                android:id="@+id/regb_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato"
+                android:gravity="center_vertical"
+                android:textColor="#46a29f"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato"
+                android:text="Category"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+            <Spinner
+                android:id="@+id/category_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato"
+                android:gravity="center_vertical"
+                android:textColor="#46a29f"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato"
+                android:text="Country"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <Spinner
+                android:id="@+id/country_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato"
+                android:gravity="center_vertical"
+                android:textColor="#46a29f"
+                android:textSize="16dp"
+                /> />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato"
+                android:text="Description"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+            <EditText
+                android:id="@+id/regb_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato"
+                android:textColor="#46a29f"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato"
+                android:inputType="textEmailAddress"
+                android:text="Email"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <EditText
+                android:paddingStart="10dp"
+                android:id="@+id/regb_email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato"
+                android:gravity="center_vertical"
+                android:textColor="#46a29f"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato"
+                android:inputType="phone"
+                android:text="Contact Number"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <EditText
+                android:paddingStart="10dp"
+                android:id="@+id/regb_contact"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato"
+                android:gravity="center_vertical"
+                android:textColor="#46a29f"
+                android:textSize="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato"
+
+                android:text="Address"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/regb_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato"
+                android:textColor="#46a29f"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato"
+                android:text="Password"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <EditText
+                android:paddingStart="10dp"
+                android:id="@+id/regb_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato"
+                android:gravity="center_vertical"
+                android:inputType="textPassword"
+                android:textColor="#46a29f"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato"
+                android:text="Confirm Password"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <EditText
+                android:paddingStart="10dp"
+                android:id="@+id/regb_password2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                android:background="#1F2833"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato"
+                android:gravity="center_vertical"
+                android:inputType="textPassword"
+                android:textColor="#46a29f"
+                android:textSize="16dp" />
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/regb_regBtn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="30dp"
+                android:background="#66fcf1"
+                android:elevation="5dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="Register"
+                android:textColor="#1a1a1d"
+                android:layout_gravity="center"
+                android:textSize="18dp"
+                ></androidx.appcompat.widget.AppCompatButton>
+
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Home"
+    android:background="@color/black"
+    >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/adv_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:layout_width="281dp"
+        android:layout_height="359dp"
+        app:fab_addButtonColorNormal="@color/colorPrimary"
+        app:fab_addButtonPlusIconColor="@color/black"
+        app:fab_labelStyle="@style/customFab"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.964">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_myprof1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/white"
+            app:fab_colorPressed="@color/colorPrimary"
+            app:fab_icon="@drawable/ic_baseline_account_circle_24"
+            app:fab_title="My Profile" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/white"
+            app:fab_colorPressed="@color/colorPrimary"
+            app:fab_icon="@drawable/ic_baseline_account_circle_24"
+            app:fab_title="Reviews" />
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_inquiry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/white"
+            app:fab_colorPressed="@color/colorPrimary"
+            app:fab_icon="@drawable/ic_baseline_account_circle_24"
+            app:fab_title="Inquiries" />
+
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
