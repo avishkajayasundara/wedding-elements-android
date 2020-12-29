@@ -37,7 +37,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                loginUser(email.getText().toString(),password.getText().toString());
-
                 startActivity(new Intent(getApplicationContext(),BusinessHomeActivity.class));
             }
         });

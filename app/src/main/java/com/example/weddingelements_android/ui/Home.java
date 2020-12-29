@@ -13,6 +13,7 @@ import com.example.weddingelements_android.adapters.AdvertisementAdapter;
 import com.example.weddingelements_android.interfaces.RestApi;
 import com.example.weddingelements_android.model.Advertisement;
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.FirebaseApp;
 
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -38,6 +39,7 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        FirebaseApp.initializeApp(getApplicationContext());
         recyclerView = (RecyclerView) findViewById(R.id.adv_recycler);
         floatingActionButton1 = findViewById(R.id.fab_myprof1);
         floatingActionButton2 = findViewById(R.id.fab_reviews);

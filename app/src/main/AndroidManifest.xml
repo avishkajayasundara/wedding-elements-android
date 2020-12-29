@@ -12,7 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeddingElementsAndroid"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.BusinessHomeActivity"></activity>
+        <activity android:name=".ui.AdminManageInquiries"></activity>
+        <activity android:name=".ui.AdminManageAdvertisements" />
+        <activity android:name=".ui.AdminManageBusiness" />
+        <activity android:name=".ui.AdminManageCustomers" />
+        <activity android:name=".ui.AdminHome" />
+        <activity android:name=".ui.AddAdvertisementActivity" />
+        <activity android:name=".ui.BusinessHomeActivity" />
         <activity android:name=".ui.BusinessOwnerRegistration" />
         <activity android:name=".ui.InquiryActivity" />
         <activity android:name=".ui.CustomerRegistrationActivity" />

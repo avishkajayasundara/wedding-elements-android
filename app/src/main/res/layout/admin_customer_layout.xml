@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    app:cardElevation="25dp"
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="#1a1a1d"
+
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:fontFamily="@font/lato_bold"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cus_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rev_lnlay"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="Customer Name"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:fontFamily="@font/lato_bold"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cus_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rev_lnlay"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="Customer Name"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_marginHorizontal="30dp"
+            android:fontFamily="@font/lato_bold"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cus_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rev_lnlay"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="Customer Name"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cus_btn"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:background="#66fcf1"
+            android:elevation="5dp"
+            android:fontFamily="@font/lato_bold"
+            android:text="Remove"
+            android:textColor="#1a1a1d"
+            android:textSize="15dp"
+           android:layout_marginBottom="20dp"
+            android:paddingHorizontal="10dp"
+            ></androidx.appcompat.widget.AppCompatButton>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

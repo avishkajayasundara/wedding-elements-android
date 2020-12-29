@@ -3,13 +3,17 @@ package com.example.weddingelements_android.interfaces;
 import com.example.weddingelements_android.model.Advertisement;
 import com.example.weddingelements_android.model.BusinessOwner;
 import com.example.weddingelements_android.model.BusinessOwnerMobile;
+import com.example.weddingelements_android.model.BusinessUpdateRequest;
 import com.example.weddingelements_android.model.Customer;
+import com.example.weddingelements_android.model.CustomerUpdateRequest;
 import com.example.weddingelements_android.model.Inquiry;
 import com.example.weddingelements_android.model.Review;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
@@ -18,7 +22,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface RestApi {
-    static String BASE_URL = "http://192.168.1.2:8080/mobile/";
+    static String BASE_URL = "http://192.168.8.102:8080/mobile/";
 
      /*
     Review APIS
@@ -43,8 +47,8 @@ public interface RestApi {
     @PUT("advertisement")
     Call<List<Advertisement>> updateAdvertisement(@Body Advertisement advertisement);
 
-    @DELETE("advertisement")
-    Call<String> deleteAdvertisement(@Path("advertisementId") String advertisementId);
+    @DELETE("advertisement/{advertisementId}")
+    Call<Void> deleteAdvertisement(@Path("advertisementId") String advertisementId);
 
     @GET("advertisement/reviews/{advertisementId}")
     Call<List<Review>> getReviewsByAdvertisement(@Path("advertisementId") String advertisementId);
@@ -60,7 +64,7 @@ public interface RestApi {
     Call<String> registerCustomer(@Body Customer customer);
 
     @PUT("customer")
-    Call<String> updateCustomer(@Body Customer customer);
+    Call<Void> updateCustomer(@Body CustomerUpdateRequest customer);
 
     @DELETE("customer")
     Call<String> deleteCustomer(@Path("email") String email);
@@ -76,7 +80,7 @@ public interface RestApi {
     Call<BusinessOwner> registerBusiness(@Body BusinessOwner businessOwner);
 
     @PUT("business-owner")
-    Call<String> updateBusinessDetails(@Body BusinessOwner businessOwner);
+    Call<Void> updateBusinessDetails(@Body BusinessUpdateRequest request);
 
     @DELETE("business-owner")
     Call<String> deleteBusiness(@Path("email") String email);

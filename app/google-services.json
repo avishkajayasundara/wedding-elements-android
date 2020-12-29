@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "806112262121",
+    "project_id": "wedding-elements",
+    "storage_bucket": "wedding-elements.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806112262121:android:15dd380e501222b20a7d78",
+        "android_client_info": {
+          "package_name": "com.example.weddingelements_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806112262121-ua404i00nhmp1ig6gqqr7qu6i73b2sro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVG1u3dqVUO5vva6PqvcFmAH8o07jCtHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806112262121-ua404i00nhmp1ig6gqqr7qu6i73b2sro.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
