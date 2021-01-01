@@ -17,6 +17,7 @@ import com.example.weddingelements_android.R;
 import com.example.weddingelements_android.adapters.ReviewAdapter;
 import com.example.weddingelements_android.interfaces.RestApi;
 import com.example.weddingelements_android.model.Advertisement;
+import com.example.weddingelements_android.model.Cache;
 import com.example.weddingelements_android.model.LoggedInUser;
 import com.example.weddingelements_android.model.Review;
 import com.google.gson.Gson;
@@ -72,7 +73,7 @@ public class SIngleAdvertisementActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RestApi api = retrofit.create(RestApi.class);
-        if(LoggedInUser.getInstance().getUserRole() == "BUSINESS_OWNER"){
+        if(Cache.user.getUserRole() != "CUSTOMER"){
             delBtn.setVisibility(View.VISIBLE);
             delBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -82,7 +83,11 @@ public class SIngleAdvertisementActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             System.out.println("deleted Successfully");
-                            startActivity(new Intent(getApplicationContext(),BusinessHomeActivity.class));
+                            if(Cache.user.getUserRole() == "ADMIN"){
+                                startActivity(new Intent(getApplicationContext(),AdminHome.class));
+                            }else {
+                                startActivity(new Intent(getApplicationContext(),BusinessHomeActivity.class));
+                            }
                         }
 
                         @Override
@@ -94,7 +99,6 @@ public class SIngleAdvertisementActivity extends AppCompatActivity {
             });
         }
         Call<List<Review>> call = api.getReviewsByAdvertisement(advertisement.getAdvertisementId());
-
         call.enqueue(new Callback<List<Review>>() {
             @Override
             public void onResponse(Call<List<Review>> call, Response<List<Review>> response) {

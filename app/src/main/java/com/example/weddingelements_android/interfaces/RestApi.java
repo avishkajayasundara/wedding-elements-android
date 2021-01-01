@@ -7,6 +7,8 @@ import com.example.weddingelements_android.model.BusinessUpdateRequest;
 import com.example.weddingelements_android.model.Customer;
 import com.example.weddingelements_android.model.CustomerUpdateRequest;
 import com.example.weddingelements_android.model.Inquiry;
+import com.example.weddingelements_android.model.LoggedInUser;
+import com.example.weddingelements_android.model.LoginRequest;
 import com.example.weddingelements_android.model.Review;
 
 import java.util.List;
@@ -22,11 +24,14 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface RestApi {
-    static String BASE_URL = "http://192.168.8.102:8080/mobile/";
+    static String BASE_URL = "http://192.168.1.4:8080/mobile/";
 
      /*
     Review APIS
      */
+
+    @POST("login")
+    Call<LoggedInUser> loginUser(@Body LoginRequest request);
 
     @GET("reviews/{email}")
     Call<List<Review>> getReviewsByCustomer(@Path("email") String email);
@@ -60,14 +65,17 @@ public interface RestApi {
     @GET("customer/{email}")
     Call<Customer> getCustomerDetails(@Path("email") String email);
 
+    @GET("customers")
+    Call<List<Customer>> listCustomers();
+
     @POST("customer")
     Call<String> registerCustomer(@Body Customer customer);
 
     @PUT("customer")
     Call<Void> updateCustomer(@Body CustomerUpdateRequest customer);
 
-    @DELETE("customer")
-    Call<String> deleteCustomer(@Path("email") String email);
+    @DELETE("customer/{email}")
+    Call<Void> deleteCustomer(@Path("email") String email);
 
     /*
     Business Owner APIS
@@ -82,9 +90,11 @@ public interface RestApi {
     @PUT("business-owner")
     Call<Void> updateBusinessDetails(@Body BusinessUpdateRequest request);
 
-    @DELETE("business-owner")
-    Call<String> deleteBusiness(@Path("email") String email);
+    @DELETE("business-owner/{email}")
+    Call<Void> deleteBusiness(@Path("email") String email);
 
+    @GET("business-owners")
+    Call<List<BusinessOwner>> listBusinesses();
     /*
     Inquiry APIS
      */

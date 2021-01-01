@@ -1,23 +1,17 @@
 package com.example.weddingelements_android.model;
 
-public class LoggedInUser {
-    private static LoggedInUser instance;
+import java.io.Serializable;
+
+public class LoggedInUser implements Serializable {
+
     private String username,userRole;
 
-    private LoggedInUser(String username, String userRole) {
+    LoggedInUser(String username, String userRole) {
         this.username = username;
         this.userRole = userRole;
     }
 
-    public static LoggedInUser getInstance() {
-        if(instance ==null){
-            instance = new LoggedInUser("aa@gmail.com","BUSINESS_OWNER");
-        }
-        return instance;
-    }
-
-    public static void setInstance(LoggedInUser instance) {
-        LoggedInUser.instance = instance;
+    public LoggedInUser() {
     }
 
     public String getUsername() {

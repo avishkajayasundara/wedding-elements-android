@@ -4,6 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.AdminManageBusiness">
+    android:background="#1a1a1d"
+    tools:context=".ui.AdminManageBusiness"
+
+    >
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bus_recycler"
+        android:layout_width="409dp"
+        android:layout_height="665dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
