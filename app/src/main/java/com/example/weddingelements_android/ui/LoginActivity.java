@@ -17,6 +17,7 @@ import com.example.weddingelements_android.interfaces.RestApi;
 import com.example.weddingelements_android.model.Cache;
 import com.example.weddingelements_android.model.LoggedInUser;
 import com.example.weddingelements_android.model.LoginRequest;
+import com.example.weddingelements_android.util.SignatureValidatior;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -25,8 +26,11 @@ import com.google.gson.GsonBuilder;
 
 import org.json.JSONObject;
 
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 
+import io.paperdb.Paper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,13 +42,14 @@ public class LoginActivity extends AppCompatActivity {
     EditText email,password;
     Button loginBtn;
     Retrofit retrofit;
-    String id = "Not Yet";
-    CountDownLatch countDownLatch = new CountDownLatch(1);
+    String id = "";
+    HashMap<String,String> map = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Paper.init(getApplicationContext());
         loginBtn = findViewById(R.id.login_btn_login);
         email = findViewById(R.id.login_email);
         password = findViewById(R.id.login_password);
@@ -61,6 +66,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser(String username, String password) throws InterruptedException {
+        try {
+            map = SignatureValidatior.getKeyPair();
+        } catch (NoSuchAlgorithmException e) {
+            Toast.makeText(getApplicationContext(),"Something Went Wrong", Toast.LENGTH_LONG);
+        }
         String token = "";
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
@@ -74,22 +84,29 @@ public class LoginActivity extends AppCompatActivity {
                         retrofit = new Retrofit.Builder().baseUrl(RestApi.BASE_URL)
                                 .addConverterFactory(GsonConverterFactory.create())
                                 .build();
-
                         RestApi api = retrofit.create(RestApi.class);
-                        Call<LoggedInUser> call = api.loginUser(new LoginRequest(username,password,id));
+                        LoginRequest loginRequest = new LoginRequest(username,password,id,map.get("public"));
+                        Call<LoggedInUser> call = api.loginUser(loginRequest);
                         call.enqueue(new Callback<LoggedInUser>() {
                             @Override
                             public void onResponse(Call<LoggedInUser> call, Response<LoggedInUser> response) {
                                 LoggedInUser user = response.body();
-                                Cache.user = user;
-                                if(user.getUserRole()=="ADMIN"){
-                                    startActivity(new Intent(getApplicationContext(),AdminHome.class));
+                                if(user==null){
+                                    Toast.makeText(getApplicationContext(),"Invalid Login Credentials",Toast.LENGTH_LONG);
                                 }else{
-                                    if(user.getUserRole()=="CUSTOMER"){
-                                        startActivity(new Intent(getApplicationContext(),Home.class));
-                                    }
-                                    else{
-                                        startActivity(new Intent(getApplicationContext(),BusinessHomeActivity.class));
+                                    user.setKey(map.get("private"));
+                                    Paper.book().write("User", user);
+                                    Cache.user = user;
+                                    if(user.getUserRole().equals("ADMIN")){
+                                        startActivity(new Intent(getApplicationContext(),AdminHome.class));
+                                    }else{
+                                        if(user.getUserRole().equals("CUSTOMER")){
+                                            startActivity(new Intent(getApplicationContext(),Home.class));
+                                        }
+                                        else{
+                                            if(user.getUserRole().equals("BUSINESS_OWNER")){
+                                                startActivity(new Intent(getApplicationContext(),BusinessHomeActivity.class));                                            }
+                                        }
                                     }
                                 }
 
@@ -97,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call<LoggedInUser> call, Throwable t) {
-                                System.out.println("Failed");
+                                Toast.makeText(getApplicationContext(),"Network Error",Toast.LENGTH_LONG);
                             }
                         });
 

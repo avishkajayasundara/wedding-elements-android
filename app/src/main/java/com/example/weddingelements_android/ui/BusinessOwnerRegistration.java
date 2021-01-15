@@ -3,6 +3,7 @@ package com.example.weddingelements_android.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -45,7 +46,6 @@ public class BusinessOwnerRegistration extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(Validator.passwordValidator(passoword1.getText().toString(),password2.getText().toString())){
-                    System.out.println("Passwords MAtch");
                     BusinessOwner businessOwner = new BusinessOwner();
                     businessOwner.setBusinessType(categoryString);
                     businessOwner.setCountry(countryString);
@@ -60,7 +60,6 @@ public class BusinessOwnerRegistration extends AppCompatActivity {
 
                 }
                 else{
-                    System.out.println("PW Do Not Match");
                     Toast.makeText(getApplicationContext(),"The Passwords do not Match",Toast.LENGTH_LONG);
                 }
             }
@@ -114,7 +113,7 @@ public class BusinessOwnerRegistration extends AppCompatActivity {
             @Override
             public void onResponse(Call<BusinessOwner> call, Response<BusinessOwner> response) {
                 System.out.println("Success");
-                System.out.println(response.body().getName());
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
 
             @Override

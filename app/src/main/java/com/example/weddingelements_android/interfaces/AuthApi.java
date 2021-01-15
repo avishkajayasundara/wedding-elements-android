@@ -10,7 +10,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 public interface AuthApi {
-    static String BASE_URL = "http://192.168.8.103:8080/";
+    static String BASE_URL = "http://192.168.1.5.103:8080/";
 
     @FormUrlEncoded
     @POST("login")

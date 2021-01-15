@@ -21,6 +21,7 @@ import com.example.weddingelements_android.R;
 import com.example.weddingelements_android.interfaces.RestApi;
 import com.example.weddingelements_android.model.Advertisement;
 import com.example.weddingelements_android.model.BusinessOwner;
+import com.example.weddingelements_android.model.Cache;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -143,7 +144,7 @@ public class AddAdvertisementActivity extends AppCompatActivity {
         advertisement.setTitle(title.getText().toString());
         advertisement.setDescription(description.getText().toString());
         advertisement.setStartingPrice(Double.parseDouble(price.getText().toString()));
-        advertisement.setBusinessOwner("aa@gmail.com");
+        advertisement.setBusinessOwner(Cache.user.getUsername());
         advertisement.setCategory(categoryString);
         advertisement.setImage(url);
 

@@ -4,11 +4,20 @@ import java.io.Serializable;
 
 public class LoggedInUser implements Serializable {
 
-    private String username,userRole;
+    private String username,userRole,sec_key;
 
-    LoggedInUser(String username, String userRole) {
+    public LoggedInUser(String username, String userRole, String key) {
         this.username = username;
         this.userRole = userRole;
+        this.sec_key = sec_key;
+    }
+
+    public String getKey() {
+        return sec_key;
+    }
+
+    public void setKey(String sec_key) {
+        this.sec_key = sec_key;
     }
 
     public LoggedInUser() {

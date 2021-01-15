@@ -38,9 +38,10 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/lato_bold"
-                android:text="Title of the Advertisement"
                 android:textColor="@color/white"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:text="Title of the Advertisement"
+                />
 
             <EditText
                 android:id="@+id/newadv_title"

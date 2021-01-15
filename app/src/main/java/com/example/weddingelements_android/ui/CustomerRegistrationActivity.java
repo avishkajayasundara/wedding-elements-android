@@ -3,6 +3,7 @@ package com.example.weddingelements_android.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -98,9 +99,7 @@ public class CustomerRegistrationActivity extends AppCompatActivity {
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                System.out.println("Success");
-                System.out.println(response.body());
-                System.out.println("Registered Successfully");
+               startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
 
             @Override

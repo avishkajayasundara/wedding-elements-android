@@ -9,7 +9,6 @@ import android.os.Bundle;
 import com.example.weddingelements_android.R;
 import com.example.weddingelements_android.adapters.AdminCustomerAdapter;
 import com.example.weddingelements_android.interfaces.RestApi;
-import com.example.weddingelements_android.model.Advertisement;
 import com.example.weddingelements_android.model.Customer;
 
 import java.util.List;
@@ -37,10 +36,12 @@ public class AdminManageCustomers extends AppCompatActivity {
         Call<List<Customer>> call = api.listCustomers();
         recyclerView = findViewById(R.id.cus_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+
+
         call.enqueue(new Callback<List<Customer>>() {
             @Override
             public void onResponse(Call<List<Customer>> call, Response<List<Customer>> response) {
-                System.out.println("Success");
                 adapter = new AdminCustomerAdapter(response.body());
                 recyclerView.setAdapter(adapter);
             }
@@ -48,7 +49,6 @@ public class AdminManageCustomers extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Customer>> call, Throwable t) {
                 System.out.println("Fail");
-
             }
         });
     }

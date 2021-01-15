@@ -7,17 +7,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.weddingelements_android.R;
 import com.example.weddingelements_android.adapters.AdvertisementAdapter;
 import com.example.weddingelements_android.interfaces.RestApi;
 import com.example.weddingelements_android.model.Advertisement;
+import com.example.weddingelements_android.model.Cache;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.FirebaseApp;
 
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
+import io.paperdb.Paper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,20 +33,22 @@ public class Home extends AppCompatActivity {
     FloatingActionButton floatingActionButton1;
     FloatingActionButton floatingActionButton2;
     FloatingActionButton floatingActionButton3;
+    FloatingActionButton floatingActionButton4;
     RecyclerView recyclerView;
     AdvertisementAdapter adapter;
     List<Advertisement> advertisements;
 
-    //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         FirebaseApp.initializeApp(getApplicationContext());
+        Paper.init(getApplicationContext());
         recyclerView = (RecyclerView) findViewById(R.id.adv_recycler);
         floatingActionButton1 = findViewById(R.id.fab_myprof1);
         floatingActionButton2 = findViewById(R.id.fab_reviews);
         floatingActionButton3 = findViewById(R.id.fab_inquiry);
+        floatingActionButton4 = findViewById(R.id.fab_logout);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         floatingActionButton1.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +67,12 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), InquiryActivity.class));
+            }
+        });
+        floatingActionButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout();
             }
         });
 
@@ -87,5 +98,27 @@ public class Home extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void logout() {
+        retrofit = new Retrofit.Builder().baseUrl(RestApi.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        RestApi api = retrofit.create(RestApi.class);
+        Call<Void> call = api.logoutUser(Cache.user.getUsername());
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                System.out.println("Success");
+                Paper.book().delete("User");
+                Cache.user = null;
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"Netword Error",Toast.LENGTH_LONG);
+            }
+        });
     }
 }

@@ -30,6 +30,9 @@ public interface RestApi {
     Review APIS
      */
 
+    @DELETE("logout/{email}")
+    Call<Void> logoutUser(@Path("email") String email);
+
     @POST("login")
     Call<LoggedInUser> loginUser(@Body LoginRequest request);
 

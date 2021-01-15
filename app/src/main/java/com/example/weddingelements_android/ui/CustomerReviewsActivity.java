@@ -9,6 +9,7 @@ import android.os.Bundle;
 import com.example.weddingelements_android.R;
 import com.example.weddingelements_android.adapters.ReviewAdapter;
 import com.example.weddingelements_android.interfaces.RestApi;
+import com.example.weddingelements_android.model.Cache;
 import com.example.weddingelements_android.model.Review;
 
 import java.util.List;
@@ -35,7 +36,7 @@ public class CustomerReviewsActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RestApi api = retrofit.create(RestApi.class);
-        Call<List<Review>> call = api.getReviewsByCustomer("w@gmail.com");
+        Call<List<Review>> call = api.getReviewsByCustomer(Cache.user.getUsername());
         call.enqueue(new Callback<List<Review>>() {
             @Override
             public void onResponse(Call<List<Review>> call, Response<List<Review>> response) {

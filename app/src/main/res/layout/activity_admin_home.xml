@@ -6,6 +6,30 @@
     android:layout_height="match_parent"
     android:background="#1a1a1d"
     tools:context=".ui.AdminHome">
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:layout_width="281dp"
+        android:layout_height="359dp"
+        app:fab_addButtonColorNormal="@color/white"
+        app:fab_addButtonPlusIconColor="@color/black"
+        app:fab_labelStyle="@style/customFab"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.964">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/admin_fab_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/white"
+            app:fab_colorPressed="@color/colorPrimary"
+            app:fab_icon="@drawable/ic_baseline_account_circle_24"
+            app:fab_title="Logout" />
+
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/admin_cus"
@@ -13,7 +37,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="84dp"
         android:background="#66fcf1"
         android:elevation="5dp"
         android:fontFamily="@font/lato_bold"

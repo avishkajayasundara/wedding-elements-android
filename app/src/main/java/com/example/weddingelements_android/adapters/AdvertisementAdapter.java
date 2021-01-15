@@ -55,22 +55,27 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         float rating = 0;
 //        viewHolder.getTextView().setText(localDataSet[position]);
-            holder.getTitle().setText(advertisements.get(position).getTitle());
-            holder.getStartingPrice().setText(advertisements.get(position).getStartingPrice().toString());
-            Picasso.get().load(advertisements.get(position).getImage()).into(holder.getImage());
-            rating = advertisements.get(position).getScore()/advertisements.get(position).getNumberOfReviews();
-            holder.getRating().setText(String.valueOf(rating));
-            holder.getRatingBar().setRating(rating/2);
-            holder.getViewButton().setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Gson gson = new Gson();
-                    Intent intent = new Intent(v.getContext(), SIngleAdvertisementActivity.class);
-                    intent.putExtra("Advertisement", gson.toJson(advertisements.get(position)));
-                    v.getContext().startActivity(intent);
-                }
-            });
+        holder.getTitle().setText(advertisements.get(position).getTitle());
+        holder.getStartingPrice().setText(advertisements.get(position).getStartingPrice().toString());
+        Picasso.get().load(advertisements.get(position).getImage()).into(holder.getImage());
+        if(advertisements.get(position).getNumberOfReviews()==0){
+            rating = 0;
+            holder.getRatingBar().setRating(rating);
 
+        }else{
+            rating = advertisements.get(position).getScore() / advertisements.get(position).getNumberOfReviews();
+            holder.getRatingBar().setRating(rating / 2);
+        }
+        holder.getRating().setText(String.valueOf(rating));
+        holder.getViewButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Gson gson = new Gson();
+                Intent intent = new Intent(v.getContext(), SIngleAdvertisementActivity.class);
+                intent.putExtra("Advertisement", gson.toJson(advertisements.get(position)));
+                v.getContext().startActivity(intent);
+            }
+        });
 
 
     }

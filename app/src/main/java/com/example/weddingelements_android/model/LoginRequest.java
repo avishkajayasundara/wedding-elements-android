@@ -3,17 +3,27 @@ package com.example.weddingelements_android.model;
 import java.io.Serializable;
 
 public class LoginRequest implements Serializable {
-    String username;
-    String password;
-    String instanceId;
+    private String username;
+    private String password;
+    private String instanceId;
+    private String sec_key;
 
-    public LoginRequest(String username, String password, String instanceId) {
-        this.username = username;
+    public LoginRequest(String username, String password, String instanceId, String sec_key) {
+        this.username = username; 
         this.password = password;
         this.instanceId = instanceId;
+        this.sec_key = sec_key;
     }
 
     public LoginRequest() {
+    }
+
+    public String getKey() {
+        return sec_key;
+    }
+
+    public void setKey(String sec_key) {
+        this.sec_key = sec_key;
     }
 
     public String getUsername() {

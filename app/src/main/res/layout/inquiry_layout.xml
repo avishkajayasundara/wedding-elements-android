@@ -18,47 +18,24 @@
         android:layout_marginTop="10dp"
         >
 
-        <LinearLayout
-            android:gravity="center_vertical"
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/admin_inq_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:id="@+id/rev_lnlay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <RatingBar
-                android:id="@+id/rev_ratingbar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:gravity="center_horizontal"
-                android:maxHeight="20dp"
-                android:maxWidth="100dp"
-                style="?android:attr/ratingBarStyleSmall"
-
-                >
-            </RatingBar>
-            <TextView
-                android:id="@+id/rev_score"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="9.5"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:textColor="@android:color/black"
-                />
-
-        </LinearLayout>
-
-
+            android:text="Product Description"
+            android:textColor="@color/purple_200"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            />
         <TextView
-            android:id="@+id/rev_cus"
+            android:layout_marginTop="15dp"
+            android:id="@+id/admin_inq_subject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/rev_lnlay"
+            android:layout_below="@+id/admin_inq_email"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:text="Product Description"
@@ -70,13 +47,13 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rev_des"
+            android:id="@+id/admin_inq_message"
             android:inputType="textMultiLine"
             android:enabled="false"
             android:text="Product Quantity"
             android:textSize="15dp"
             android:textColor="@android:color/black"
-            android:layout_below="@+id/rev_cus"
+            android:layout_below="@+id/admin_inq_subject"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             />

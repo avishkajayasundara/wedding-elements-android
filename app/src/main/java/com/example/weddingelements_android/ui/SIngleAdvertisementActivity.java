@@ -62,8 +62,14 @@ public class SIngleAdvertisementActivity extends AppCompatActivity {
         description = findViewById(R.id.sin_description);
         gson = new Gson();
         advertisement = gson.fromJson(getIntent().getStringExtra("Advertisement"), Advertisement.class);
-        rating = advertisement.getScore()/advertisement.getNumberOfReviews();
-        ratingBar.setRating(rating/2);
+        if(advertisement.getNumberOfReviews()==0){
+            rating = 0;
+            ratingBar.setRating(0);
+        }
+        else{
+            rating = advertisement.getScore()/advertisement.getNumberOfReviews();
+            ratingBar.setRating(rating/2);
+        }
         ratingText.setText(String.valueOf(rating));
         description.setText(advertisement.getDescription());
         startingPrice.setText("Starting From Rs."+advertisement.getStartingPrice());
@@ -73,7 +79,7 @@ public class SIngleAdvertisementActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RestApi api = retrofit.create(RestApi.class);
-        if(Cache.user.getUserRole() != "CUSTOMER"){
+        if(!Cache.user.getUserRole().equals("CUSTOMER")){
             delBtn.setVisibility(View.VISIBLE);
             delBtn.setOnClickListener(new View.OnClickListener() {
                 @Override

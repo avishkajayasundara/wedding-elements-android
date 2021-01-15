@@ -7,17 +7,6 @@
     android:background="#1a1a1d"
     tools:context=".ui.BusinessHomeActivity">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/busfloatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.923"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -276,6 +265,39 @@
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:layout_width="281dp"
+        android:layout_height="359dp"
+        app:fab_addButtonColorNormal="@color/white"
+        app:fab_addButtonPlusIconColor="@color/black"
+        app:fab_labelStyle="@style/customFab"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.964">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/busfloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/white"
+            app:fab_colorPressed="@color/colorPrimary"
+            app:fab_icon="@drawable/ic_baseline_account_circle_24"
+            app:fab_title="Post Advertisement" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/bus_fab_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/white"
+            app:fab_colorPressed="@color/colorPrimary"
+            app:fab_icon="@drawable/ic_baseline_account_circle_24"
+            app:fab_title="Logout" />
+
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

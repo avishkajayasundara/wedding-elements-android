@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.weddingelements_android.R;
 import com.example.weddingelements_android.interfaces.RestApi;
+import com.example.weddingelements_android.model.Cache;
 import com.example.weddingelements_android.model.Customer;
 import com.example.weddingelements_android.model.CustomerUpdateRequest;
 
@@ -71,7 +72,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
 
             }
         });
-        retrofit2.Call<Customer> call = api.getCustomerDetails("qq@gmail.com");
+        retrofit2.Call<Customer> call = api.getCustomerDetails(Cache.user.getUsername());
         call.enqueue(new retrofit2.Callback<Customer>() {
             @Override
             public void onResponse(retrofit2.Call<Customer> call, retrofit2.Response<Customer> response) {
